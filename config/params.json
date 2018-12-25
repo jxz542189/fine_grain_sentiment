@@ -3,5 +3,21 @@
   "activation_function": "relu",
   "wd": 0.0,
   "keep_prob": 0.5,
-  "vocab_size": 65680
+  "vocab_size": 65680,
+  "seq_max_length": 500,
+  "cls_num": 80,
+  "big_cls_num":20,
+  "small_cls_num":4,
+  "token_embedding_dim": 300,
+  "block_len":8,
+  "hidden_size": 128,
+  "var_decay": 0.999,
+  "decay":0.9,
+  "batch_size": 32,
+  "n_epochs":1,
+  "optimizer": "adam",
+  "learning_rate": 0.005,
+  "gpu_mem": 0.8,
+  "model_name": "san_model",
+  "model_type": "train"
 }

@@ -77,7 +77,7 @@ class Model(object):
                 'based_sent2vec', self.wd, self.is_train, self.keep_prob,
                 block_len=self.block_len)
                 res_rep.append(rep)
-            self.rep = tf.concat(res_rep, 3)
+            self.rep = tf.concat(res_rep, -1)
 
     def get_logits(self):
         with tf.variable_scope('output'):

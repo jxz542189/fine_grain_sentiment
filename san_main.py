@@ -9,6 +9,7 @@ import numpy as np
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
+from sklearn.metrics import f1_score
 
 path = os.path.dirname(os.path.realpath(__file__))
 # print(path)
@@ -20,40 +21,16 @@ config = tf.contrib.training.HParams(**params_dict)
 print(config)
 
 
-def get_metrics(self):
-    self.labels_split = tf.split(self.labels, num_or_size_splits=self.big_cls_num, axis=-1)
-    self.logits_split = tf.split(self.logits, num_or_size_splits=self.big_cls_num, axis=-1)
-    res = []
-    res_prec = []
-    res_recall = []
-    for logit, label in zip(self.logits_split, self.labels_split):
-        pre = tf.argmax(logit, axis=-1)
-        pre = tf.one_hot(pre, depth=self.small_cls_num)
-        recall = tf.metrics.recall(label, pre)
-        res_recall.append(recall)
-        prec = tf.metrics.precision(label, pre)
-        res_prec.append(prec)
-        res.append(2 * recall[0] * prec[0] / (recall[0] + prec[0]))
-    f1_score = tf.reduce_sum(tf.stack(res)) / 20.
-    return f1_score, res_recall, res_prec
-
 def metrics(labels, logits):
     labels_split = np.hsplit(labels, 20)
     logis_split = np.hsplit(logits, 20)
-    f1_score = 0
+    f_score = 0
     for logit, label in zip(logis_split, labels_split):
         logit = np.argmax(logit, axis=-1)
         label = np.argmax(label, axis=-1)
-        report = classification_report(logit, label)
-        avg = report.split('\n\n')[-1]
-        f1_score += float(avg.split('      ')[3])
-        # print(report)
-        # precision = average_precision_score(label, logit)
-        # recall = average_precision_score(label, logit)
-        # f1_score += 2 * precision * recall / (precision + recall)
-    return f1_score / 20
-
-
+        temp_f1_score = f1_score(logit, label, average=None)
+        f_score += np.average(temp_f1_score)
+    return f_score / 20
 
 
 def train():
@@ -106,15 +83,16 @@ def train():
                     loss, train_op = model.step(sess, batch_data, batch_label)
                     # print(train_op)
                     print("loss: ", loss)
-                    i = 0
-                    f1_score = 0
+                    pre = []
+                    true_labels = []
                     for batch_test, test_label in model.get_batch_data(test_data, test_labels):
                         logits = sess.run(model.logits, feed_dict={model.token_seq:batch_test, model.labels:test_label, model.is_train: False})
-                        temp_f1_score = metrics(test_label, logits)
-                        i += 1
-                        f1_score += temp_f1_score
-                    f1_score_avg = f1_score / i
-                    print("f1_score: ", f1_score_avg)
+                        pre.append(logits)
+                        true_labels.append(test_label)
+                    test_label = np.concatenate(true_labels, axis=0)
+                    logits = np.concatenate(pre, axis=0)
+                    f1_score = metrics(test_label, logits)
+                    print("f1_score: ", f1_score)
 
 
 

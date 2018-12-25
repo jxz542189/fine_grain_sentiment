@@ -1,3 +1,312 @@
 2018-12-24 11:27:43,323 - utils.logger - INFO - check ok!
 2018-12-24 11:31:48,832 - utils.logger - INFO - check ok!
 2018-12-24 11:34:31,742 - utils.logger - INFO - check ok!
+2018-12-24 16:11:16,815 - utils.logger - INFO - check ok!
+2018-12-24 16:12:24,710 - utils.logger - INFO - check ok!
+2018-12-24 16:13:54,245 - utils.logger - INFO - check ok!
+2018-12-24 16:22:01,102 - utils.logger - INFO - check ok!
+2018-12-24 16:26:05,490 - utils.logger - INFO - check ok!
+2018-12-24 16:27:29,778 - utils.logger - INFO - check ok!
+2018-12-24 16:28:39,460 - utils.logger - INFO - check ok!
+2018-12-24 16:29:44,967 - utils.logger - INFO - check ok!
+2018-12-24 16:38:09,139 - utils.logger - INFO - check ok!
+2018-12-24 16:39:20,246 - utils.logger - INFO - check ok!
+2018-12-24 16:41:04,226 - utils.logger - INFO - check ok!
+2018-12-24 16:41:37,771 - utils.logger - INFO - check ok!
+2018-12-24 20:35:14,486 - utils.logger - INFO - check ok!
+2018-12-24 20:37:03,195 - utils.logger - INFO - check ok!
+2018-12-24 20:37:59,240 - utils.logger - INFO - check ok!
+2018-12-24 20:39:19,089 - utils.logger - INFO - check ok!
+2018-12-24 20:39:19,570 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:39:19,570 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:39:19,570 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:39:52,054 - utils.logger - INFO - check ok!
+2018-12-24 20:39:52,535 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:39:52,535 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:39:52,536 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:41:14,357 - utils.logger - INFO - check ok!
+2018-12-24 20:42:01,001 - utils.logger - INFO - check ok!
+2018-12-24 20:42:36,341 - utils.logger - INFO - check ok!
+2018-12-24 20:42:36,983 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:42:36,983 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:42:36,987 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:43:19,490 - utils.logger - INFO - check ok!
+2018-12-24 20:43:19,970 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:43:19,970 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:43:19,971 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:43:21,752 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:44:17,622 - utils.logger - INFO - check ok!
+2018-12-24 20:44:18,599 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:44:18,600 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:44:18,602 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:44:22,992 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:45:29,184 - utils.logger - INFO - check ok!
+2018-12-24 20:45:29,661 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:45:29,661 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:45:29,661 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:45:31,474 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:46:19,306 - utils.logger - INFO - check ok!
+2018-12-24 20:46:19,856 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:46:19,856 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:46:19,856 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:46:21,718 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:48:11,853 - utils.logger - INFO - check ok!
+2018-12-24 20:48:12,323 - utils.logger - INFO - regularization var num: 0
+2018-12-24 20:48:12,324 - utils.logger - INFO - trainable var num: 10
+2018-12-24 20:48:12,324 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:118: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-24 20:48:14,226 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:52:12,912 - utils.logger - INFO - check ok!
+2018-12-24 20:52:15,201 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:55:18,756 - utils.logger - INFO - check ok!
+2018-12-24 20:55:23,147 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 20:58:14,312 - utils.logger - INFO - check ok!
+2018-12-24 20:58:16,654 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-24 21:48:24,057 - utils.logger - INFO - check ok!
+2018-12-24 21:48:27,295 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 09:17:21,968 - utils.logger - INFO - check ok!
+2018-12-25 09:20:06,865 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 09:43:40,024 - utils.logger - INFO - check ok!
+2018-12-25 09:43:40,529 - utils.logger - INFO - regularization var num: 0
+2018-12-25 09:43:40,529 - utils.logger - INFO - trainable var num: 10
+2018-12-25 09:43:40,530 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:120: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-25 09:43:40,558 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 09:48:34,909 - utils.logger - INFO - check ok!
+2018-12-25 09:48:35,509 - utils.logger - INFO - regularization var num: 0
+2018-12-25 09:48:35,509 - utils.logger - INFO - trainable var num: 10
+2018-12-25 09:48:35,510 - tensorflow - WARNING - From /root/PycharmProjects/SAN/model/san_model.py:120: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+2018-12-25 09:48:35,541 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 09:56:50,512 - utils.logger - INFO - check ok!
+2018-12-25 09:56:51,058 - utils.logger - INFO - regularization var num: 0
+2018-12-25 09:56:51,058 - utils.logger - INFO - trainable var num: 10
+2018-12-25 09:56:51,680 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:03:15,179 - utils.logger - INFO - check ok!
+2018-12-25 10:03:15,778 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:03:15,778 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:03:16,754 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:04:11,910 - utils.logger - INFO - check ok!
+2018-12-25 10:04:12,408 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:04:12,408 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:04:13,011 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:05:31,902 - utils.logger - INFO - check ok!
+2018-12-25 10:05:32,408 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:05:32,408 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:05:34,976 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:07:10,554 - utils.logger - INFO - check ok!
+2018-12-25 10:07:11,034 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:07:11,034 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:07:13,381 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:08:23,789 - utils.logger - INFO - check ok!
+2018-12-25 10:08:24,295 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:08:24,295 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:08:26,873 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:09:11,716 - utils.logger - INFO - check ok!
+2018-12-25 10:09:12,229 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:09:12,229 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:09:14,570 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:09:51,581 - utils.logger - INFO - check ok!
+2018-12-25 10:09:52,081 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:09:52,081 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:09:54,606 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:10:21,112 - utils.logger - INFO - check ok!
+2018-12-25 10:10:21,615 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:10:21,615 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:10:22,204 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:11:07,206 - utils.logger - INFO - check ok!
+2018-12-25 10:11:07,691 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:11:07,691 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:11:08,282 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:12:18,361 - utils.logger - INFO - check ok!
+2018-12-25 10:12:18,859 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:12:18,859 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:12:19,440 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:13:20,326 - utils.logger - INFO - check ok!
+2018-12-25 10:13:20,863 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:13:20,864 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:13:21,437 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:14:22,706 - utils.logger - INFO - check ok!
+2018-12-25 10:14:23,199 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:14:23,199 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:14:23,861 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:16:29,792 - utils.logger - INFO - check ok!
+2018-12-25 10:16:30,280 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:16:30,281 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:16:30,942 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:22:46,047 - utils.logger - INFO - check ok!
+2018-12-25 10:22:46,551 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:22:46,552 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:22:47,130 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:24:27,405 - utils.logger - INFO - check ok!
+2018-12-25 10:24:27,927 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:24:27,927 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:24:28,537 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:28:05,676 - utils.logger - INFO - check ok!
+2018-12-25 10:28:06,201 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:28:06,202 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:28:06,767 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:30:59,277 - utils.logger - INFO - check ok!
+2018-12-25 10:30:59,757 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:30:59,757 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:31:00,361 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:32:20,661 - utils.logger - INFO - check ok!
+2018-12-25 10:32:21,158 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:32:21,158 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:32:21,785 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:49:20,871 - utils.logger - INFO - check ok!
+2018-12-25 10:49:21,399 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:49:21,399 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:49:22,050 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:51:08,346 - utils.logger - INFO - check ok!
+2018-12-25 10:51:12,744 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:51:12,746 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:51:21,325 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:52:00,355 - utils.logger - INFO - check ok!
+2018-12-25 10:52:01,179 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:52:01,180 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:52:02,410 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:58:48,712 - utils.logger - INFO - check ok!
+2018-12-25 10:58:49,545 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:58:49,545 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:58:50,779 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 10:59:19,484 - utils.logger - INFO - check ok!
+2018-12-25 10:59:20,063 - utils.logger - INFO - regularization var num: 0
+2018-12-25 10:59:20,063 - utils.logger - INFO - trainable var num: 10
+2018-12-25 10:59:20,680 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:00:18,253 - utils.logger - INFO - check ok!
+2018-12-25 11:00:19,046 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:00:19,046 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:00:20,224 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:02:49,129 - utils.logger - INFO - check ok!
+2018-12-25 11:02:49,917 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:02:49,918 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:02:51,114 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:04:24,543 - utils.logger - INFO - check ok!
+2018-12-25 11:04:25,114 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:04:25,115 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:04:25,697 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:05:38,887 - utils.logger - INFO - check ok!
+2018-12-25 11:05:39,768 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:05:39,768 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:05:41,216 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:06:38,433 - utils.logger - INFO - check ok!
+2018-12-25 11:06:39,032 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:06:39,032 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:06:39,824 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:07:11,595 - utils.logger - INFO - check ok!
+2018-12-25 11:07:12,182 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:07:12,182 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:07:12,764 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:08:01,237 - utils.logger - INFO - check ok!
+2018-12-25 11:08:01,804 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:08:01,804 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:08:02,400 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:08:27,706 - utils.logger - INFO - check ok!
+2018-12-25 11:08:28,281 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:08:28,281 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:08:28,862 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:09:24,231 - utils.logger - INFO - check ok!
+2018-12-25 11:09:24,798 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:09:24,798 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:09:25,383 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 11:10:57,581 - utils.logger - INFO - check ok!
+2018-12-25 11:10:58,180 - utils.logger - INFO - regularization var num: 0
+2018-12-25 11:10:58,180 - utils.logger - INFO - trainable var num: 10
+2018-12-25 11:10:58,773 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 13:02:12,218 - utils.logger - INFO - check ok!
+2018-12-25 13:25:52,556 - utils.logger - INFO - check ok!
+2018-12-25 13:26:41,033 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:26:41,034 - utils.logger - INFO - trainable var num: 65
+2018-12-25 13:26:56,323 - utils.logger - INFO - Trainable Parameters Number: 9212544
+2018-12-25 13:28:28,028 - utils.logger - INFO - check ok!
+2018-12-25 13:28:34,591 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:28:34,591 - utils.logger - INFO - trainable var num: 65
+2018-12-25 13:28:35,721 - utils.logger - INFO - Trainable Parameters Number: 6989568
+2018-12-25 13:41:06,771 - utils.logger - INFO - check ok!
+2018-12-25 13:41:10,697 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:41:10,697 - utils.logger - INFO - trainable var num: 65
+2018-12-25 13:41:11,311 - utils.logger - INFO - Trainable Parameters Number: 6989568
+2018-12-25 13:43:15,501 - utils.logger - INFO - check ok!
+2018-12-25 13:43:19,064 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:43:19,064 - utils.logger - INFO - trainable var num: 50
+2018-12-25 13:43:19,733 - utils.logger - INFO - Trainable Parameters Number: 4311768
+2018-12-25 13:45:08,597 - utils.logger - INFO - check ok!
+2018-12-25 13:45:09,535 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:45:09,536 - utils.logger - INFO - trainable var num: 10
+2018-12-25 13:45:10,221 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 13:45:53,529 - utils.logger - INFO - check ok!
+2018-12-25 13:45:54,152 - utils.logger - INFO - regularization var num: 0
+2018-12-25 13:45:54,152 - utils.logger - INFO - trainable var num: 10
+2018-12-25 13:45:54,786 - utils.logger - INFO - Trainable Parameters Number: 807768
+2018-12-25 14:03:30,642 - utils.logger - INFO - check ok!
+2018-12-25 14:03:31,594 - utils.logger - INFO - regularization var num: 0
+2018-12-25 14:03:31,594 - utils.logger - INFO - trainable var num: 10
+2018-12-25 14:03:32,833 - utils.logger - INFO - Trainable Parameters Number: 807768
