@@ -46,7 +46,7 @@ def metrics(labels, logits):
         label = np.argmax(label, axis=-1)
         report = classification_report(logit, label)
         avg = report.split('\n\n')[-1]
-        f1_score += avg.split('      ')[3]
+        f1_score += float(avg.split('      ')[3])
         # print(report)
         # precision = average_precision_score(label, logit)
         # recall = average_precision_score(label, logit)
@@ -106,10 +106,15 @@ def train():
                     loss, train_op = model.step(sess, batch_data, batch_label)
                     # print(train_op)
                     print("loss: ", loss)
-
-                    logits = sess.run(model.logits, feed_dict={model.token_seq:test_data, model.labels:test_labels, model.is_train: False})
-                    # print("logits: ", logits)
-                    print("f1_score: ", metrics(test_labels, logits))
+                    i = 0
+                    f1_score = 0
+                    for batch_test, test_label in model.get_batch_data(test_data, test_labels):
+                        logits = sess.run(model.logits, feed_dict={model.token_seq:batch_test, model.labels:test_label, model.is_train: False})
+                        temp_f1_score = metrics(test_label, logits)
+                        i += 1
+                        f1_score += temp_f1_score
+                    f1_score_avg = f1_score / i
+                    print("f1_score: ", f1_score_avg)
 
 
 
