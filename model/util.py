@@ -9,7 +9,7 @@ from context_fusion.nn import bn_dense_layer
 
 path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 data_path = os.path.join(path, 'data')
-print(data_path)
+# print(data_path)
 
 def context_fusion_layers(
         rep_tensor, rep_mask, method, activation_function,
@@ -125,7 +125,7 @@ def  embedding_layer(token_indices=None,
                      name: str=None,
                      trainable=True):
     if token_embedding_matrix is not None:
-        tok_mat = token_embedding_matrix
+        tok_mat = token_embedding_matrix.astype(np.float32)
         if trainable:
             Warning('Matrix of embeddings is passed to the embedding_layer, '
                     'possibly there is a pre-trained embedding matrix. '
