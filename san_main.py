@@ -73,9 +73,12 @@ def train():
 
             if config.model_type == "train":
                 model.build_ema()
-            # summary = tf.summary.merge_all()
+            writer = tf.summary.FileWriter(logdir=os.path.join(path, config.summary_dir))
+            summary = tf.summary.merge_all()
             # f1_score, res_prec, res_recall = model.get_metrics()
             sess.run(tf.global_variables_initializer())
+
+            saver = tf.train.Saver(max_to_keep=3)
             for _ in range(config.n_epochs):
                 for batch_data, batch_label in model.get_batch_data(train_data, train_labels):
                     global_step = sess.run(model.global_step) + 1
@@ -83,24 +86,24 @@ def train():
                     loss, train_op = model.step(sess, batch_data, batch_label)
                     # print(train_op)
                     print("loss: ", loss)
-                    pre = []
-                    true_labels = []
-                    for batch_test, test_label in model.get_batch_data(test_data, test_labels):
-                        logits = sess.run(model.logits, feed_dict={model.token_seq:batch_test, model.labels:test_label, model.is_train: False})
-                        pre.append(logits)
-                        true_labels.append(test_label)
-                    test_label = np.concatenate(true_labels, axis=0)
-                    logits = np.concatenate(pre, axis=0)
-                    f1_score = metrics(test_label, logits)
-                    print("f1_score: ", f1_score)
-
-
-
-
-
-
-
-
+                    temp_summary = sess.run(summary,
+                                            feed_dict={model.token_seq: batch_data, model.labels: batch_label,
+                                                       model.is_train: False})
+                    writer.add_summary(temp_summary, global_step)
+                    if global_step % config.eval_period == 0:
+                        pre = []
+                        true_labels = []
+                        for batch_test, test_label in model.get_batch_data(test_data, test_labels):
+                            logits = sess.run(model.logits,
+                                              feed_dict={model.token_seq: batch_test, model.labels: test_label,
+                                                         model.is_train: False})
+                            pre.append(logits)
+                            true_labels.append(test_label)
+                        test_label = np.concatenate(true_labels, axis=0)
+                        logits = np.concatenate(pre, axis=0)
+                        f1_score = metrics(test_label, logits)
+                        print("f1_score: ", f1_score)
+                        saver.save(sess, os.path.join(path, config.ckpt_path), global_step)
 
 
 if __name__ == '__main__':
