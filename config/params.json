@@ -24,5 +24,6 @@
   "eval_period": 500,
   "ckpt_path": "save_model/ckpt_path",
   "n_gpu": 4,
-  "is_train": true
+  "is_train": true,
+  "all_clip_norm_val": 5
 }

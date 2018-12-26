@@ -104,11 +104,11 @@ class Model(object):
     def build_loss(self):
         # self.loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=self.labels,
         #                                                                     logits=self.logits))
-        print("====================================================================")
+        # print("====================================================================")
         labels_split = tf.split(self.labels, num_or_size_splits=self.big_cls_num, axis=-1)
         logits_split = tf.split(self.logits, num_or_size_splits=self.big_cls_num, axis=-1)
-        print("labels_split: ", labels_split)
-        print("logits_split: ", logits_split)
+        # print("labels_split: ", labels_split)
+        # print("logits_split: ", logits_split)
         with tf.name_scope("weight_decay"):
             for var in set(tf.get_collection('reg_vars')):
                 weight_decay = tf.multiply(tf.nn.l2_loss(var), self.wd,

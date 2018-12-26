@@ -6,11 +6,8 @@ import json
 from sklearn.externals import joblib
 import random
 import numpy as np
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import average_precision_score
-from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
-
+os.environ['CUDA_VISIBLE_DEVICES'] ='1'
 path = os.path.dirname(os.path.realpath(__file__))
 # print(path)
 params_path = os.path.join(path, 'config', 'params.json')
@@ -58,14 +55,11 @@ def train():
         gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=config.gpu_mem)
         graph_config = tf.ConfigProto(gpu_options=gpu_options)
 
-
-    # model = None
     with g.as_default():
         with tf.variable_scope("%s" % config.model_name, reuse=tf.AUTO_REUSE) as scope:
             sess = tf.Session(config=graph_config)
             model = Model(config, token_embedding_matrix=token_embedding_matrix)
             model.build_loss()
-            # model.get_metrics()
             model.get_optimizer()
 
             if True:
@@ -75,17 +69,14 @@ def train():
                 model.build_ema()
             writer = tf.summary.FileWriter(logdir=os.path.join(path, config.summary_dir))
             summary = tf.summary.merge_all()
-            # f1_score, res_prec, res_recall = model.get_metrics()
             sess.run(tf.global_variables_initializer())
 
             saver = tf.train.Saver(max_to_keep=3)
             for _ in range(config.n_epochs):
                 for batch_data, batch_label in model.get_batch_data(train_data, train_labels):
                     global_step = sess.run(model.global_step) + 1
-                    print(global_step)
+
                     loss, train_op = model.step(sess, batch_data, batch_label)
-                    # print(train_op)
-                    print("loss: ", loss)
                     temp_summary = sess.run(summary,
                                             feed_dict={model.token_seq: batch_data, model.labels: batch_label,
                                                        model.is_train: False})
@@ -102,8 +93,26 @@ def train():
                         test_label = np.concatenate(true_labels, axis=0)
                         logits = np.concatenate(pre, axis=0)
                         f1_score = metrics(test_label, logits)
-                        print("f1_score: ", f1_score)
+                        logger.info("global_step: {}".format(global_step))
+                        logger.info("loss: {}".format(loss))
+                        logger.info("f1_score: {}".format(f1_score))
                         saver.save(sess, os.path.join(path, config.ckpt_path), global_step)
+            pre = []
+            true_labels = []
+            total_loss = 0
+            for batch_test, test_label in model.get_batch_data(test_data, test_labels):
+                logits, loss = sess.run([model.logits, model.loss],
+                                  feed_dict={model.token_seq: batch_test, model.labels: test_label,
+                                             model.is_train: False})
+                total_loss += loss
+                pre.append(logits)
+                true_labels.append(test_label)
+            test_label = np.concatenate(true_labels, axis=0)
+            logits = np.concatenate(pre, axis=0)
+            f1_score = metrics(test_label, logits)
+            logger.info("loss: {}".format(total_loss))
+            logger.info("f1_score: {}".format(f1_score))
+            saver.save(sess, os.path.join(path, config.ckpt_path), 1000000)
 
 
 if __name__ == '__main__':

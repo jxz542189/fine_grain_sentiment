@@ -119,6 +119,7 @@ def train():
         graph_config = tf.ConfigProto(gpu_options=gpu_options, allow_soft_placement=True)
     # sess = tf.Session(config=graph_config)
     # sess.run(tf.global_variables_initializer())
+
     with tf.device('/cpu:0'):
         tower_grads = []
         with tf.variable_scope("%s" % config.model_name, reuse=tf.AUTO_REUSE):
