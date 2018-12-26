@@ -22,5 +22,7 @@
   "model_type": "train",
   "summary_dir": "summary",
   "eval_period": 500,
-  "ckpt_path": "save_model/ckpt_path"
+  "ckpt_path": "save_model/ckpt_path",
+  "n_gpu": 4,
+  "is_train": true
 }

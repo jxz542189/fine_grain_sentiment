@@ -155,6 +155,8 @@ def simple_block_attention(
             rep_mask_split = tf.reshape(rep_mask_comp, [bs, block_num, block_len])  # bs,bn,bl
 
             # non-linear
+            # print("=================================")
+            # print("rep_tensor: ", rep_tensor_split.shape)
             rep_map = bn_dense_layer(rep_tensor_split, ivec, True, 0., 'bn_dense_map', activation,
                                      False, wd, keep_prob, is_train)  # bs,bn,bl,vec
             rep_map_tile = tf.tile(tf.expand_dims(rep_map, 2), [1, 1, block_len, 1, 1])  # bs,bn,bl,bl,vec

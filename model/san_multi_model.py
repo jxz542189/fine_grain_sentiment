@@ -22,7 +22,8 @@ method_name_list = [
 
 
 class Model(object):
-    def __init__(self, config, token_embedding_matrix=None, **kwargs):
+    def __init__(self, token_seq, labels, is_train,
+                 config, token_embedding_matrix=None, **kwargs):
         self.methods = config.methods
         self.activation_function = config.activation_function
         self.wd = config.wd
@@ -42,17 +43,19 @@ class Model(object):
         self.decay = config.decay
         self.n_gpu = config.n_gpu
         self.learning_rate = config.learning_rate
+        self.token_seq = token_seq
+        self.labels = labels
+        self.is_train = is_train
         self.global_step = tf.get_variable('global_step', shape=[], dtype=tf.int32,
                                            initializer=tf.constant_initializer(0), trainable=False)
         self.ema = tf.train.ExponentialMovingAverage(self.decay)
 
         self.var_ema = tf.train.ExponentialMovingAverage(self.var_decay)
-        # self.is_train = is_train
 
         if self.check_method():
             logger.info('check ok!')
 
-        self.init_placeholders()
+
         self.token_mask = tf.cast(self.token_seq, tf.bool)
         self.token_len = tf.reduce_sum(tf.cast(self.token_mask, tf.int32), -1)
 
@@ -75,7 +78,7 @@ class Model(object):
             for method in self.methods:
                 rep = sentence_encoding_models(
                 self.emb, self.token_mask, method, 'relu',
-                'based_sent2vec', self.wd, self.is_train, self.keep_prob,
+                'based_sent2vec', self.wd, self.keep_prob,
                 block_len=self.block_len)
                 res_rep.append(rep)
             self.rep = tf.concat(res_rep, -1)
@@ -84,9 +87,10 @@ class Model(object):
         with tf.variable_scope('output'):
             pre_logits = tf.nn.relu(linear([self.rep], self.hidden_size, True, scope='pre_logits_linear',
                                            wd=self.wd, input_keep_prob=self.keep_prob,
-                                           is_train=self.is_train))  # bs, hn
+                                        is_train=self.is_train))  # bs, hn
             self.logits = linear([pre_logits], self.cls_num, False, scope='get_output',
-                            wd=self.wd, input_keep_prob=self.keep_prob, is_train=self.is_train)
+                            wd=self.wd, input_keep_prob=self.keep_prob,
+                                 is_train=self.is_train)
 
 
 
@@ -97,17 +101,14 @@ class Model(object):
                 raise Exception("each method in self.methods: {} must be in method_name_list: {}".format(self.methods, method_name_list))
         return True
 
-    def init_placeholders(self):
-        self.token_seq = tf.placeholder(tf.int32, [None, self.seq_max_length], name='token_seq')
-
-        self.labels = tf.placeholder(tf.int32, [None, self.cls_num], name='gold_label')
-        self.is_train = tf.placeholder(tf.bool, [], name='is_train')
-
     def build_loss(self):
         # self.loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=self.labels,
         #                                                                     logits=self.logits))
+        print("====================================================================")
         labels_split = tf.split(self.labels, num_or_size_splits=self.big_cls_num, axis=-1)
         logits_split = tf.split(self.logits, num_or_size_splits=self.big_cls_num, axis=-1)
+        print("labels_split: ", labels_split)
+        print("logits_split: ", logits_split)
         with tf.name_scope("weight_decay"):
             for var in set(tf.get_collection('reg_vars')):
                 weight_decay = tf.multiply(tf.nn.l2_loss(var), self.wd,
@@ -118,11 +119,10 @@ class Model(object):
         logger.info('regularization var num: %d' % len(reg_vars))
         logger.info('trainable var num: %d' % len(trainable_vars))
         for logit, label in zip(logits_split, labels_split):
-            losses = tf.nn.softmax_cross_entropy_with_logits_v2(
+            tf.add_to_collection('losses', tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(
                 labels=label,
                 logits=logit
-            )
-            tf.add_to_collection('losses', tf.reduce_mean(losses))
+            )))
         self.loss = tf.add_n(tf.get_collection('losses'), name='loss')
         tf.summary.scalar(self.loss.op.name, self.loss)
         tf.add_to_collection('ema/scalar', self.loss)
@@ -194,28 +194,11 @@ class Model(object):
         self.train_op = self.opt.minimize(self.loss, global_step=self.global_step,
                                           var_list=tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES))
 
-    def get_batch_data(self, train_data, train_labels):
-        batch_num = int(len(train_data) / self.batch_size)
-        for i in range(batch_num):
-            yield (train_data[i * self.n_gpu * self.batch_size: (i+1)*self.n_gpu *self.batch_size], train_labels[i * self.batch_size: (i+1) * self.batch_size])
 
     def step(self, sess, batch_data, batch_labels):
         assert isinstance(sess, tf.Session)
-        feed_dict = {self.token_seq:batch_data, self.labels:batch_labels, self.is_train:True}
+        feed_dict = {self.token_seq:batch_data, self.labels:batch_labels}
         loss, train_op = sess.run([self.loss, self.train_op], feed_dict=feed_dict)
         return loss, train_op
 
-
-
-
-
-#
-# if __name__ == '__main__':
-#     model = Model(config=config)
-
-
-
-
-    # ===============测试check_method============================
-    # model = Model(rep_tensor=None, rep_mask=None, config=config)
 

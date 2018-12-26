@@ -69,6 +69,9 @@ def _linear(xs,output_size,bias,bias_start=0., scope=None):
         if bias:
             bias = tf.get_variable('bias', shape=[output_size],dtype=tf.float32,
                                    initializer=tf.constant_initializer(bias_start))
+            # print("=====================================")
+            # print("x: ", x.shape)
+            # print("W: ", W.shape)
             out = tf.matmul(x, W) + bias
         else:
             out = tf.matmul(x, W)
